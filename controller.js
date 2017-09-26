@@ -1,13 +1,13 @@
 var Book = require("./models/book");
 
- exports.showData = function(req, res){
+ exports.showData = (req, res) => {
     Book.find({}, (err, book) => {
         if(err){console.log(err)}
         else{res.send(JSON.stringify(book));}
     })
 }
 
-exports.getData = function(req, res){
+exports.getData = (req, res) => {
     let book = new Book(req.body);
     book.save((err, book) => {
         if(err){console.log(err)}
@@ -18,7 +18,7 @@ exports.getData = function(req, res){
     })
 }
 
-exports.deleteData = function(req, res){
+exports.deleteData = (req, res) => {
     
     Book.findByIdAndRemove(req.params.id, (err) => {
         if(err){console.log(err);}
@@ -30,7 +30,7 @@ exports.deleteData = function(req, res){
 
 }
 
-exports.updateData = function (req, res){
+exports.updateData = (req, res) => {
     let query = { 
         _id: req.params.id
     };

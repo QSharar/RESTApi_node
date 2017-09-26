@@ -14,13 +14,12 @@ app.use(bodyParser.json());
 mongoose.connect("mongodb://localhost/library");
 const db = mongoose.connection;
 
-db.on("open", ()=>{
-    console.log("db connected");
-});
+db.on("open", () =>  console.log("db connected"));
 
-db.on("error", (err) => {
-    console.log(err);
-});
+
+db.on("error", err =>  console.log(err));
+   
+
 
 //set routes
 
